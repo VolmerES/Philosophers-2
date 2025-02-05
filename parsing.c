@@ -6,13 +6,13 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:48:23 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 12:06:57 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:33:59 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int ft_is_positive(char c)
+static int	ft_is_positive(char c)
 {
 	if (c == '+')
 		return (1);
@@ -21,16 +21,15 @@ static int ft_is_positive(char c)
 
 size_t	ft_atosize_t(char *argv)
 {
-	size_t nbr;
-	int i;
-	
+	size_t	nbr;
+	int		i;
+
 	nbr = 0;
 	i = 0;
 	while (argv[i])
 	{
 		while (ft_is_positive(argv[i]))
 			i++;
-			
 		if (argv[i] == '-')
 			ft_error_exit(RED "Error: Wrong parameters\n"
 				BLUE "Please note, negatives numbers are not allowed" RESET);

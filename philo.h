@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:24:45 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 12:26:29 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:41:53 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,6 @@ typedef struct s_table
 	t_philo			*philos;
 }			t_table;
 
-
-
-
 int		ft_usleep(size_t milliseconds);
 void	ft_philo_think(t_philo *philo);
 void	ft_philo_sleep(t_philo *philo);
@@ -103,7 +100,8 @@ int		ft_error_exit(char *error);
 size_t	ft_get_current_time(void);
 void	ft_error_thread(t_code code, int status);
 void	ft_mutex_safe(t_mtx *mutex, t_code code);
-void	ft_init_philos(t_philo *philos, t_table *table, t_mtx *forks, char **argv);
+void	ft_init_philos(t_philo *philos, t_table *table,
+			t_mtx *forks, char **argv);
 void	ft_init_forks(t_mtx *forks, size_t philo_count);
 void	ft_init_program(t_table *table, t_philo *philos);
 size_t	ft_atosize_t(char *argv);

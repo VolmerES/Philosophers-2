@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:47:25 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 11:55:52 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:38:29 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ int	ft_thread_create(t_table *table, t_mtx *forks)
 {
 	pthread_t	observer;
 	int			i;
-	
+
 	if (pthread_create(&observer, NULL, &ft_monitor, table->philos) != 0)
 		ft_destroy_program("Thread creation error", table, forks);
 	i = 0;
 	while (i < table->philos[0].philo_count)
 	{
-		if (pthread_create(&table->philos[i].thread, NULL, &ft_philo_routine, &table->philos[i]) != 0)
+		if (pthread_create(&table->philos[i].thread, NULL,
+				&ft_philo_routine, &table->philos[i]) != 0)
 			ft_destroy_program("Thread creation error", table, forks);
 		i++;
 	}
@@ -40,10 +41,11 @@ int	ft_thread_create(t_table *table, t_mtx *forks)
 	return (0);
 }
 
-void	ft_init_philos(t_philo *philos, t_table *table, t_mtx *forks, char **argv)
+void	ft_init_philos(t_philo *philos, t_table *table,
+	t_mtx *forks, char **argv)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
 	while (i < ft_atosize_t(argv[1]))
 	{
@@ -68,8 +70,8 @@ void	ft_init_philos(t_philo *philos, t_table *table, t_mtx *forks, char **argv)
 
 void	ft_init_forks(t_mtx *forks, size_t philo_count)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
 	while (i < philo_count)
 	{
@@ -78,7 +80,7 @@ void	ft_init_forks(t_mtx *forks, size_t philo_count)
 	}
 }
 
-void ft_init_program(t_table *table, t_philo *philos)
+void	ft_init_program(t_table *table, t_philo *philos)
 {
 	table->dead_flag = 0;
 	table->philos = philos;

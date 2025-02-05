@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:46:06 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 11:54:59 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:32:57 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ void	ft_philo_eat(t_philo *philo)
 	{
 		ft_usleep(philo->time_to_die);
 		ft_mutex_safe(philo->right_fork, UNLOCK);
-		return;
+		return ;
 	}
-
 	ft_mutex_safe(philo->left_fork, LOCK);
-	
 	ft_print_message("has taken a fork", philo, philo->id);
 	philo->eat = 1;
 	ft_print_message("is eating", philo, philo->id);
@@ -47,10 +45,11 @@ void	ft_philo_eat(t_philo *philo)
 	ft_mutex_safe(philo->left_fork, UNLOCK);
 	ft_mutex_safe(philo->right_fork, UNLOCK);
 }
+
 void	*ft_philo_routine(void *pointer)
 {
-	t_philo *philo;
-	
+	t_philo	*philo;
+
 	philo = (t_philo *)pointer;
 	if (philo->id % 2 == 0)
 		ft_usleep(philo->time_to_eat);

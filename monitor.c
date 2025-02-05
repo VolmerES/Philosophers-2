@@ -6,13 +6,13 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:53:38 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 11:54:27 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:32:07 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		ft_dead_loop(t_philo *philo)
+int	ft_dead_loop(t_philo *philo)
 {
 	ft_mutex_safe(philo->dead_lock, LOCK);
 	if (*philo->dead == 1)
@@ -27,7 +27,8 @@ int		ft_dead_loop(t_philo *philo)
 int	ft_philo_dead(t_philo *philo, size_t time_to_die)
 {
 	ft_mutex_safe(philo->meal_lock, LOCK);
-	if (ft_get_current_time() - philo->last_meal >= time_to_die && philo->eat == 0)
+	if (ft_get_current_time() - philo->last_meal >= time_to_die
+		&& philo->eat == 0)
 	{
 		return (ft_mutex_safe(philo->meal_lock, UNLOCK), 1);
 	}
@@ -37,7 +38,7 @@ int	ft_philo_dead(t_philo *philo, size_t time_to_die)
 
 int	ft_check_if_dead(t_philo *philos)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < philos[0].philo_count)
@@ -82,9 +83,9 @@ int	ft_check_if_all_ate(t_philo *philos)
 	return (0);
 }
 
-void *ft_monitor(void *pointer)
+void	*ft_monitor(void *pointer)
 {
-	t_philo *philos;
+	t_philo	*philos;
 
 	philos = (t_philo *)pointer;
 	while (1)
