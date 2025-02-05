@@ -4,7 +4,7 @@ SRC = ./init.c ./main.c ./monitor.c ./parsing.c ./philos_routine.c ./safe.c ./ut
 
 
 OBJS = $(SRC:.c=.o)
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -lpthread
 all : $(NAME)
 	@echo "Compilacion PHILO: OK"
 

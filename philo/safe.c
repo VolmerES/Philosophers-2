@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:50:49 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 12:33:10 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:32:22 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ void	ft_error_mutex(int status)
 void	ft_mutex_safe(t_mtx *mutex, t_code code)
 {
 	if (code == INIT)
-		pthread_mutex_init(mutex, NULL);
+		ft_error_mutex(pthread_mutex_init(mutex, NULL));
 	else if (code == UNLOCK)
-		pthread_mutex_unlock(mutex);
+		ft_error_mutex(pthread_mutex_unlock(mutex));
 	else if (code == LOCK)
-		pthread_mutex_lock(mutex);
+		ft_error_mutex(pthread_mutex_lock(mutex));
 	else if (code == DESTROY)
-		pthread_mutex_destroy(mutex);
+		ft_error_mutex(pthread_mutex_destroy(mutex));
 	else
 		ft_error_exit(RED "Error: Mutex operation not found\n" RESET);
 }
