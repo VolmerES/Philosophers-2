@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:24:45 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 12:03:16 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:26:29 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@
 # include <errno.h>
 # include <stdbool.h>
 # include <stdint.h>
-# include <string.h>
 
 # define RED     "\x1B[31m"
 # define GREEN   "\x1B[32m"
 # define BLUE    "\x1B[34m"
 # define RESET   "\x1B[0m"
-# define PHILO_MAX 200
 
 //          PARAMETROS DE FILO           //
 //---------------------------------------//
@@ -44,9 +42,6 @@ typedef pthread_mutex_t	t_mtx;
 typedef struct s_table	t_table;
 typedef struct s_philo	t_philo;
 
-//-------------ESTRUCTURAS--------------//
-
-//! ESTRUCTURA DE CODIGOS DE OPERACION MUTEX//
 typedef enum e_code
 {
 	LOCK,
@@ -115,5 +110,6 @@ size_t	ft_atosize_t(char *argv);
 void	ft_parsing_philo(t_philo *philo, char **argv);
 void	ft_error_mutex(int status);
 void	*ft_malloc_safe(size_t size);
+int		ft_strlen(char *str);
 
 #endif

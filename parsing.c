@@ -6,13 +6,13 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:48:23 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 11:50:09 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:06:57 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int ft_is_negative_or_positive(char c)
+static int ft_is_positive(char c)
 {
 	if (c == '+')
 		return (1);
@@ -28,7 +28,7 @@ size_t	ft_atosize_t(char *argv)
 	i = 0;
 	while (argv[i])
 	{
-		while (ft_is_negative_or_positive(argv[i]))
+		while (ft_is_positive(argv[i]))
 			i++;
 			
 		if (argv[i] == '-')

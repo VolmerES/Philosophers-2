@@ -6,11 +6,21 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:44:49 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 11:50:38 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:26:44 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	ft_strlen(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 int	ft_usleep(size_t milliseconds)
 {
@@ -38,7 +48,7 @@ void ft_destroy_program(char *error, t_table *table, t_mtx *forks)
     i = 0;
 	if (error)
 	{
-		write(2, error, strlen(error));
+		write(2, error, ft_strlen(error));
 		write(2, "\n", 1);
 	}
     ft_mutex_safe(&table->writelock, DESTROY);
@@ -49,6 +59,10 @@ void ft_destroy_program(char *error, t_table *table, t_mtx *forks)
 		ft_mutex_safe(&forks[i], DESTROY);
 		i++;
 	}
+	free(table->philos);
+	table->philos = NULL;
+	free(forks);
+	forks = NULL;
 }
 void	ft_print_message(char *message, t_philo *philo, int id)
 {
