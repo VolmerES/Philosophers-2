@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: volmer <volmer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:18:30 by volmer            #+#    #+#             */
-/*   Updated: 2025/02/05 01:49:33 by volmer           ###   ########.fr       */
+/*   Updated: 2025/02/05 11:42:01 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,7 +200,7 @@ void	*ft_philo_routine(void *pointer)
 	
 	philo = (t_philo *)pointer;
 	if (philo->id % 2 == 0)
-		ft_usleep(1);
+		ft_usleep(philo->time_to_eat);
 	while (!ft_dead_loop(philo))
 	{
 		ft_philo_eat(philo);
@@ -378,7 +378,7 @@ void ft_init_program(t_table *table, t_philo *philos)
 
 static int ft_is_negative_or_positive(char c)
 {
-	if (c == '-' || c == '+')
+	if (c == '+')
 		return (1);
 	return (0);
 }
