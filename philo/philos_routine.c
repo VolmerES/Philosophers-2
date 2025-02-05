@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philos_routine.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
+/*   By: volmer <volmer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:46:06 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 12:32:57 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:01:06 by volmer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_philo_sleep(t_philo *philo)
 void	ft_philo_eat(t_philo *philo)
 {
 	ft_mutex_safe(philo->right_fork, LOCK);
+	ft_print_message("has taken a fork", philo, philo->id);
 	if (philo->philo_count == 1)
 	{
 		ft_usleep(philo->time_to_die);
