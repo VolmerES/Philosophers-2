@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 11:44:49 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 12:41:05 by jdelorme         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:52:57 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_usleep(size_t milliseconds)
 	size_t	start;
 
 	start = ft_get_current_time();
-	while (ft_get_current_time() - start < milliseconds)
+	while ((ft_get_current_time() - start) < milliseconds)
 		usleep(500);
 	return (0);
 }
