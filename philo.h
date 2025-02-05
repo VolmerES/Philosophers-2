@@ -3,23 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: volmer <volmer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:24:45 by jdelorme          #+#    #+#             */
-/*   Updated: 2025/02/05 01:51:48 by volmer           ###   ########.fr       */
+/*   Updated: 2025/02/05 12:03:16 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-/* pthread_create, pthread_join, pthread_mutex_init, 
-pthread_mutex_lock, pthread_mutex_unlock*/
 # include <pthread.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-// gettimeofday
 # include <sys/time.h>
 # include <limits.h>
 # include <errno.h>
@@ -117,5 +114,6 @@ void	ft_init_program(t_table *table, t_philo *philos);
 size_t	ft_atosize_t(char *argv);
 void	ft_parsing_philo(t_philo *philo, char **argv);
 void	ft_error_mutex(int status);
+void	*ft_malloc_safe(size_t size);
 
 #endif
